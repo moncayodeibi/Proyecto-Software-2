@@ -33,7 +33,9 @@
 <body onLoad="setTimeout('delayedRedirect()', 8000)" style="background-color:#fff;">
 <!--<body  style="background-color:#fff;">-->
   <?php
-/*Reservar los una habitación por medio de una intefaz web, con los siguientes datos: Fecha de ingreso y salida, tipo de habitación
+/*
+
+Reservar los una habitación por medio de una intefaz web, con los siguientes datos: Fecha de ingreso y salida, tipo de habitación
 cantidad de niños y de adultos, requerimientos especiales para la habitación como tipo de alimentación, tipo de privacidad,
 servicios extras como bebida de bienvenida, desayuno, cena, retiro del aeropuerto, se debe enviar nombres, apellidos, correo y teléfono para tomar contacto con el cliente
 luego de llenar la reserva.
