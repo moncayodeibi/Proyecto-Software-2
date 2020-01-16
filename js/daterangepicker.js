@@ -24,7 +24,7 @@
         var moment = (typeof window != 'undefined' && typeof window.moment != 'undefined') ? window.moment : require('moment');
         module.exports = factory(moment, jQuery);
     } else {
-        // Browser globals
+        // Navegador Global
         root.daterangepicker = factory(root.moment, root.jQuery);
     }
 }(this, function(moment, $) {
@@ -96,7 +96,7 @@
         //data-api options will be overwritten with custom javascript options
         options = $.extend(this.element.data(), options);
 
-        //html template for the picker UI
+        //Plantilla html para UI
         if (typeof options.template !== 'string' && !(options.template instanceof $))
             options.template = 
             '<div class="daterangepicker">' +
@@ -280,7 +280,7 @@
         if (typeof options.alwaysShowCalendars === 'boolean')
             this.alwaysShowCalendars = options.alwaysShowCalendars;
 
-        // update day names order to firstDay
+        //Actualizarnombre de días en orden
         if (this.locale.firstDay != 0) {
             var iterator = this.locale.firstDay;
             while (iterator > 0) {
