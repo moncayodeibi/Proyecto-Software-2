@@ -53,7 +53,7 @@ del pago bancario.
   include('config/config.php');
 
   $mail = $_POST['email'];
-  $to = "moncayodeibi@gmail.com";/* YOUR EMAIL HERE */
+  $to = "moncayodeibi@gmail.com";/* Correo electronico */
   $subject = "Solicitud de reserva";
   $headers = "From: Hotel Chocolat <noreply@yourdomain.com>";
   $message = "Detalles de la reserva\n";
@@ -79,10 +79,10 @@ del pago bancario.
   $message .= "\nTeléfono: " . $_POST['telephone'];
   $message .= "\nTerminos y condiciones: " . $_POST['terms']. "\n";
 
-  //Receive Variable
+  //recibir variable
   $sentOk = mail($to,$subject,$message,$headers);
 
-  //Confirmation page
+  //Pagina de confirmacion
   $user = "$mail";
   $usersubject = "Reserva Hotel Chocolat";
   $userheaders = "From: programacion@escollanos.com\n";
@@ -99,8 +99,8 @@ del pago bancario.
          VALUES (null,'.$_POST['dates'].',"'.$_POST['room_type'].'",
         '.$_POST['adults'].','.$_POST['child'].',"'.$_POST['notes'].'",
         "'.$_POST['first_name'].'","'.$_POST['last_name'].'","'.$_POST['email'].'",'.$_POST['telephone'].'  )';
-        //echo $sql4;
-        //echo "estoy aaqui";
+        
+        
         $sth4 = FETCH_SQL($sql4);
   ?>
   <!-- END SEND MAIL SCRIPT -->
