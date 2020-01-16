@@ -10,7 +10,7 @@ $dbpass = 'diente$deleon109H';
 
 $db = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
-// Conectando, seleccionando la base de datos
+
 try {
 	$jarvis = new db("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	}
@@ -43,11 +43,7 @@ function run_in_background($path,$log='>>')
 }
 function FETCH_SQL($sql,$show_exception=1)
 {
-	/* use like this
-		$sth = FETCH_SQL("Select * from jarvis.sch_securelogin_tbdata_members");
-		while($result = $sth->fetch(PDO::FETCH_OBJ))
-		{
-	*/
+
 	global $jarvis;
 	try
 	{
@@ -58,9 +54,9 @@ function FETCH_SQL($sql,$show_exception=1)
 	catch(PDOException $exception)
 	{
 		if($show_exception)flush_it(" <hr>exception: ".$exception->getMessage() . "<br>sql is $sql<hr>",1);
-		//echo " <hr>exception: ".$exception->getMessage() . "<br>sql is $sql<hr>";
+
 	}
-	//print_r($sqlit);
+
 	return $sqlit;
 
 }
@@ -74,7 +70,7 @@ function FETCH_VAR($sql)
 {
 	$sth = FETCH_SQL($sql);
 	$result = $sth->fetch(PDO::FETCH_NUM);
-//	echo __LINE__ . " " ;print_r($result);echo "<br>";
+
 	return $result[0];
 }
 function FETCH_ARRAY($sql)
@@ -84,7 +80,7 @@ function FETCH_ARRAY($sql)
 	{
 		$results[]=$result[0];
 	}
-//	echo __LINE__ . " " ;print_r($result);echo "<br>";
+
 	return $results;}
 
 ?>
