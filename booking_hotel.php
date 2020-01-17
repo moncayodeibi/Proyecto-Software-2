@@ -25,7 +25,7 @@
 
   <script type="text/javascript">
   function delayedRedirect(){
-    window.location = "index.html"
+    window.location = "index.html"   
   }
   </script>
 
