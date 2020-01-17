@@ -1,6 +1,6 @@
 <?php
 // Conectando, seleccionando la base de datos
-
+//COMENTARIO DE GABY
 date_default_timezone_set('America/Guayaquil');
 
 $dbhost = 'localhost';
