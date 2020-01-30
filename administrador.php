@@ -3,7 +3,7 @@
 //include("config/config.php");
 include("data/login_data.php"); 
 
-$sql1 = 'select * from escollan_software2.admin where username = "'.$_SESSION['login_user'].'"';
+$sql1 = 'select * from escollan_software2.admin where username = "'.$_SESSION['login_user'].'"'; 
 //echo $sql1 . "<br>";
 $sth1=FETCH_SQL($sql1);
 while($result1 = $sth1->fetch(PDO::FETCH_OBJ)){
@@ -74,7 +74,7 @@ $tabla = '<table class="table table-hover">
         <td>'.$apellidos.'</td>
         <td>
             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal'.$id.'">
-            '.$email.'
+            '.$email.' 
             </button>        
         </td>
         <td>'.$telefono.'</td>
@@ -125,7 +125,7 @@ $tabla = '<table class="table table-hover">
 	}
   $tabla .=  '</tbody></table>';
 
-
+ 
 
 $html = file_get_contents("administrador.html");
 $html = str_replace("{tabla}",$tabla,$html);

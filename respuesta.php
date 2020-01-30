@@ -26,6 +26,7 @@
   <script type="text/javascript">
   function delayedRedirect(){
     window.location = "administrador.php"
+
   }
   </script>
 
@@ -62,7 +63,7 @@
 
   //echo "Las fechas son".$_POST['dates'];
 
-  //Receive Variable
+  //Recibir variable
   $sentOk = mail($to,$subject,$message,$headers);
 
   //Confirmation page
@@ -80,7 +81,7 @@
 
   $sql4 = 'UPDATE reservas SET estado = 1 WHERE id='.$id.'';
         echo $sql4;
-        //echo "estoy aaqui";
+        //
         $sth4 = FETCH_SQL($sql4);
   ?>
   <!-- END SEND MAIL SCRIPT -->

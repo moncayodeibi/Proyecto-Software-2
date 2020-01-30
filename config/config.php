@@ -10,7 +10,6 @@ $dbpass = 'diente$deleon109H';
 
 $db = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
-
 try {
 	$jarvis = new db("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	}
@@ -30,6 +29,8 @@ class db extends PDO {
     return $this->query("SELECT FOUND_ROWS()")->fetchColumn();
   }
 }
+
+
 
 function run_in_background($path,$log='>>')
 {
