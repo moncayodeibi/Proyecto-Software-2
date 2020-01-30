@@ -4,7 +4,7 @@ Theme URI: http://www.ansonika.com/melkin/
 Author: Ansonika
 Author URI: http://themeforest.net/user/Ansonika/
 
-[Table of contents] 
+[Table of contents]
 
 1. SITE STRUCTURE and TYPOGRAPHY
 - 1.1 Typography
@@ -438,7 +438,7 @@ h3 .slide_typo strong {
   }
 }
 .content-left-wrapper.bg_hotel:before {
-  background: url(../img/slides/sub_header_hotel.jpg) center center no-repeat;
+  background: url('http://escollanos.com/software2/img/sub_header_hotel.jpg') center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
