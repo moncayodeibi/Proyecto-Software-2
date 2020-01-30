@@ -19,25 +19,24 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/vendors.css" rel="stylesheet">
-  
-  
 
   <!-- YOUR CUSTOM CSS -->
   <link href="css/custom.css" rel="stylesheet">
 
   <script type="text/javascript">
   function delayedRedirect(){
-    window.location = "index.html"   
+    window.location = "index.html"
   }
   </script>
 
 </head>
 <body onLoad="setTimeout('delayedRedirect()', 8000)" style="background-color:#fff;">
-<!--<body  style="background-color:#fff;">-->
-  <?php
-/*
+<!--
+  
 
-Reservar los una habitación por medio de una intefaz web, con los siguientes datos: Fecha de ingreso y salida, tipo de habitación
+-->
+  <?php
+/*Reservar los una habitación por medio de una intefaz web, con los siguientes datos: Fecha de ingreso y salida, tipo de habitación
 cantidad de niños y de adultos, requerimientos especiales para la habitación como tipo de alimentación, tipo de privacidad,
 servicios extras como bebida de bienvenida, desayuno, cena, retiro del aeropuerto, se debe enviar nombres, apellidos, correo y teléfono para tomar contacto con el cliente
 luego de llenar la reserva.
@@ -55,11 +54,12 @@ del pago bancario.
   include('config/config.php');
 
   $mail = $_POST['email'];
-  $to = "moncayodeibi@gmail.com";/* Correo electronico */
+  $to = "moncayodeibi@gmail.com";/* YOUR EMAIL HERE */
   $subject = "Solicitud de reserva";
   $headers = "From: Hotel Chocolat <noreply@yourdomain.com>";
   $message = "Detalles de la reserva\n";
   $message .= "\nCheck in > Check out: " . $_POST['dates'];
+  
   //echo "Las fechas son".$_POST['dates'];
 
   $message .= "\nTipo de habitación: " . $_POST['room_type'];
@@ -69,10 +69,13 @@ del pago bancario.
     $message .= "\nRequerimientos especiales: " . $_POST['notes'];
   }
 
+  $opciones_extra="";
   $message .= "\nOpciones Seleccionadas:\n" ;
   foreach($_POST['options'] as $value)
   {
-    $message .=   "- " .  trim(stripslashes($value)) . "\n";
+    $message .=   "- " .  trim(stripslashes($value)) . "\n"; 
+    $opciones_extra.="- " .  trim(stripslashes($value)) . "\n";
+
   };
 
   $message .= "\nNombres: " . $_POST['first_name'];
@@ -81,28 +84,28 @@ del pago bancario.
   $message .= "\nTeléfono: " . $_POST['telephone'];
   $message .= "\nTerminos y condiciones: " . $_POST['terms']. "\n";
 
-  //recibir variable
+  //Receive Variable
   $sentOk = mail($to,$subject,$message,$headers);
 
-  //Pagina de confirmacion
+  //Confirmation page
   $user = "$mail";
   $usersubject = "Reserva Hotel Chocolat";
-  $userheaders = "From: programacion@escollanos.com\n";
+  $userheaders = "From: moncayodeibi@gmail.com\n";
   /*$usermessage = "Thank you for your time. Your quotation request is successfully submitted.\n"; WITH OUT SUMMARY*/
   //Confirmation page WITH  SUMMARY
 
   $usermessage = "Gracias por su tiempo. Su requerimiento ha sido enviado.
-  Te responderemos cuanto antes.\n\nBELOW A SUMMARY\n\n$message";
+  Te responderemos cuanto antes.\n\nRESUMEN\n\n$message";
   mail($user,$usersubject,$usermessage,$userheaders);
 
 
   $sql4 = 'insert into escollan_software2.reservas
-        (id,checkin,tipo_cuarto,cantidad_adultos,cantidad_ninos,notas_especiales,nombres, apellidos, email, telefono)
-         VALUES (null,'.$_POST['dates'].',"'.$_POST['room_type'].'",
-        '.$_POST['adults'].','.$_POST['child'].',"'.$_POST['notes'].'",
-        "'.$_POST['first_name'].'","'.$_POST['last_name'].'","'.$_POST['email'].'",'.$_POST['telephone'].'  )';
-        
-        
+        (id,checkin,tipo_cuarto,cantidad_adultos,cantidad_ninos,notas_especiales,opciones,nombres, apellidos, email, telefono,estado)
+         VALUES (null,"'.$_POST['dates'].'","'.$_POST['room_type'].'",
+        '.$_POST['adults'].','.$_POST['child'].',"'.$_POST['notes'].'","'.$opciones_extra.'",
+        "'.$_POST['first_name'].'","'.$_POST['last_name'].'","'.$_POST['email'].'",'.$_POST['telephone'].',0  )';
+        //echo $sql4;
+        //echo "estoy aaqui";
         $sth4 = FETCH_SQL($sql4);
   ?>
   <!-- END SEND MAIL SCRIPT -->
